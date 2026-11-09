@@ -1,0 +1,121 @@
+:root {
+  --pad-bg: #1c1c1e;
+  --screen-bg: #000;
+  --key-bg: #333336;
+  --key-fn-bg: #a5a5a5;
+  --key-op-bg: #ff9f0a;
+  --key-text: #fff;
+  --key-fn-text: #000;
+  font: 16px/1.4 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  background: #101012;
+}
+
+.calculator {
+  width: min(360px, 100vw - 32px);
+  background: var(--pad-bg);
+  border-radius: 28px;
+  padding: 20px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.screen {
+  background: var(--screen-bg);
+  border-radius: 18px;
+  padding: 18px 16px 14px;
+  margin-bottom: 16px;
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.expression {
+  color: #8e8e93;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  min-height: 21px;
+}
+
+.display {
+  color: var(--key-text);
+  font-size: clamp(32px, 11vw, 46px);
+  font-weight: 300;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  word-break: break-all;
+  text-align: right;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.keypad button {
+  border: none;
+  border-radius: 999px;
+  aspect-ratio: 1;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--key-text);
+  background: var(--key-bg);
+  cursor: pointer;
+  transition: filter 0.12s ease, transform 0.06s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.keypad button:hover {
+  filter: brightness(1.22);
+}
+
+.keypad button:active {
+  transform: scale(0.96);
+  filter: brightness(1.35);
+}
+
+.keypad button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.keypad button.fn {
+  background: var(--key-fn-bg);
+  color: var(--key-fn-text);
+}
+
+.keypad button.op,
+.keypad button.eq {
+  background: var(--key-op-bg);
+  color: #fff;
+  font-size: 26px;
+}
+
+.keypad button.zero {
+  grid-column: span 2;
+  aspect-ratio: auto;
+  justify-self: stretch;
+  text-align: left;
+  padding-left: 28px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .keypad button {
+    transition: none;
+  }
+}
