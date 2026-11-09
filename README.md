@@ -1,9 +1,11 @@
-# Calculator
+# Calculator built By Mini-Coding-Agent
 
 A small calculator web app built with React 19, TypeScript and Vite. The
 arithmetic lives in a pure module (`src/calculator.ts`) so it can be tested
 without a browser; `App.tsx` only wires up buttons, the display and the
 keyboard.
+
+<img width="958" height="812" alt="Screen Shot 2026-11-09 at 5 55 16 AM" src="https://github.com/user-attachments/assets/c97a5e05-3c82-4df9-9d14-33bc69387031" />
 
 ## Features
 
